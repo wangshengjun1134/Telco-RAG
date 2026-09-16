@@ -54,7 +54,7 @@ models = [
 
 models_fullnames = {
     "gpt-3.5": "gpt-4o-mini",
-    "gpt-4": "gpt-4-turbo-2024-04-09",
+    "gpt-4": "gpt-4o",
     "gpt-4o": "gpt-4o-2024-05-13",
     "gpt-4o-mini": "gpt-4o-mini",
     "mixtral": "mistralai/Mixtral-8x7B-Instruct-v0.1",
@@ -130,8 +130,8 @@ def update_api_key():
     return
 
 def submit_prompt_flex_UI(prompt, model="gpt-4o-mini", output_json=False):
-    if openai.api_key == "":
-        update_api_key()
+    # 每次调用都刷新 API Key，确保使用页面传入的最新值
+    update_api_key()
 
     if model in models_fullnames:
         model_fullname = models_fullnames[model]
@@ -232,8 +232,8 @@ def submit_prompt_flex_UI(prompt, model="gpt-4o-mini", output_json=False):
 
 
 async def a_submit_prompt_flex_UI(prompt, model="gpt-4o-mini", output_json=False):
-    if openai.api_key == "":
-        update_api_key()
+    # 每次调用都刷新 API Key，确保使用页面传入的最新值
+    update_api_key()
     if model in models_fullnames:
         model_fullname = models_fullnames[model]
         endpoint = models_endpoints[model]
