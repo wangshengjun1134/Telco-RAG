@@ -14,7 +14,8 @@ class CloneProgress(RemoteProgress):
         self.pbar.n = cur_count
         self.pbar.refresh()
 
-folder_url = "https://huggingface.co/datasets/netop/Embeddings3GPP-R18"
+#folder_url = "https://huggingface.co/datasets/netop/Embeddings3GPP-R18"
+folder_url = "https://hf-mirror.com/datasets/netop/3GPP-R18"
 clone_directory = "./3GPP-Release18"
 
 if not (os.path.exists(clone_directory) and "Embeddings" in os.listdir(clone_directory)):
